@@ -57,7 +57,7 @@ namespace Baigiamasis_darbas.Test
 
         }
                 
-        [TestCase("panyseva@yahoo.com", "slaptazodis123")]
+        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", TestName = ("Input El.Pastas, Input Slaptazodis = LogIn"))]
         public void AruodasPage2TestLogIn(string elPastas, string slaptazodis)
         {
             _aruodasPage2.NavigateToDefaultPage()
