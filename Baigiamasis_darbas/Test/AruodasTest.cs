@@ -57,8 +57,8 @@ namespace Baigiamasis_darbas.Test
 
         }
                 
-        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", TestName = ("Input El.Pastas, Input Slaptazodis = LogIn"))]
-        public void AruodasPage2TestLogIn(string elPastas, string slaptazodis)
+        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", "Mano aruodas", TestName = ("LogIn - Input El.Pastas, Input Slaptazodis = LogIn"))]
+        public void AruodasPage2TestLogIn(string elPastas, string slaptazodis, string expectedResult)
         {
             _aruodasPage2.NavigateToDefaultPage()
                 .ClickCookiesButton()
@@ -66,7 +66,8 @@ namespace Baigiamasis_darbas.Test
                 .InputElPastas(elPastas)
                 .InputSlaptazodis(slaptazodis)
                 .InputElPastasAndSlaptazodis(elPastas, slaptazodis)
-                .ClickButtonPrisijungti();
+                .ClickButtonPrisijungti()
+                .Result(true);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Baigiamasis_darbas.Page
         private IWebElement _SelectInputElPastoAdresas => Driver.FindElement(By.Id("userName"));
         private IWebElement _SelectInputElSlaptazodis => Driver.FindElement(By.Id("password"));
         private IWebElement _SelectButtonPrisijungti => Driver.FindElement(By.Id("loginAruodas"));
+        private IWebElement _Result => Driver.FindElement(By.CssSelector("body > div.main > div.header-strip > div.header-main-menu > div:nth-child(3) > div.personal-menu > div.user-personal-menu > a > span"));
 
 
         public AruodasPage2(IWebDriver webdriver) : base(webdriver)
@@ -59,6 +61,11 @@ namespace Baigiamasis_darbas.Page
             _SelectButtonPrisijungti.Click();
             return this;
         }
-
+        public AruodasPage2 Result(bool expectedResult)
+        {
+            Assert.IsTrue(_Result.Text.Contains("Mano aruodas"), $"Result is not the same, expected{expectedResult}, but was {_Result.Text}");
+            return this;
+        }
+       
     }
 }
