@@ -22,6 +22,7 @@ namespace Baigiamasis_darbas.Page
         private IWebElement _SelectBoxNoriuGautiAruodasLtNaujienlaiskius => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(3) > label > span"));
         private IWebElement _SelectBoxSuPortaloTaisyklemisSutinku => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(4) > label > span"));
         private IWebElement _ClickButtonRegistruotis => Driver.FindElement(By.CssSelector("#registerButton"));
+        
 
 
 

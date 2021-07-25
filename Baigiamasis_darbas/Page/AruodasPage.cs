@@ -12,7 +12,7 @@ namespace Baigiamasis_darbas.Page
     {
         private const string PageAddress = "https://m.aruodas.lt/?obj=2&change_region=1";
 
-        //private IWebElement _Cookies => Driver.FindElement(By.XPath("/html/body/div[2]/div[3]/div/div[1]/div/div[2]/div/button[1]"));
+        private IWebElement _Cookies => Driver.FindElement(By.XPath("/html/body/div[2]/div[3]/div/div[1]/div/div[2]/div/button[1]"));
         private IWebElement _SelectSavivaldybe => Driver.FindElement(By.XPath("/html/body/div[1]/div/div[3]/div[1]/div/ul[3]/li[1]/a[1]"));
         private IWebElement _TextElementSavivaldybe => Driver.FindElement(By.CssSelector("body > div.popup-window > ul:nth-child(3) > li:nth-child(7) > a"));
 
@@ -47,15 +47,23 @@ namespace Baigiamasis_darbas.Page
                 Driver.Url = PageAddress;
             return this;
         }
+        /*
         public AruodasPage AcceptAllCookies()
         {
+            
             Cookie myCookie = new Cookie("CookieConsent",
-                "CPJ4-MQPJ4-MQAcABBENBkCsAP_AAH_AAChQIGNf_X__b3_j-_59f_t0eY1P9_7_v-0zjhfdt-8N2f_X_L8X42M7vF36pq4KuR4Eu3LBIQdlHOHcTUmw6okVrzPsbk2Mr7NKJ7PEmnMbO2dYGH9_n93TuZKY7__8___z__-v_v____f_r-3_3__59X---_e_V399zLv9_____9nN___BAwAkw1L6ALsSxwZNo0qhRAjCsJDoBQAUUAwtE1hAyuCnZXAR6ghYAITUBGBECDEFGLAIABAIAkIiAkAPBAIgCIBAACAFSAhAARsAgsALAwCAAUA0LECKAIQJCDI4KjlMCAiRaKCeysASi72NMIQyiwAoFH9FRgIlCCBYGQkLBzHAEgIAAAAA.f_gAD_gAAAAA",
-            "https://m.aruodas.lt/?obj=2&change_region=1",
+                "isIABGlobal=false&datestamp=Sun+Jul+25+2021+17%3A10%3A30+GMT%2B0300+(Eastern+European+Summer+Time)&version=6.15.0&hosts=&consentId=9e32d128-da83-4998-b5c9-2f3c5048f5d3&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0004%3A1%2CSTACK42%3A1",
+            "h/ttps://m.aruodas.lt/?obj=2&change_region=1",
                 "/",
                 DateTime.Now.AddDays(30));
             Driver.Manage().Cookies.AddCookie(myCookie);
             Driver.Navigate().Refresh();
+            return this;
+        }
+            */
+        public AruodasPage ClickCookiesButton()
+        {
+            _Cookies.Click();
             return this;
         }
         public AruodasPage SelectDropdownButtonSavivaldybe()

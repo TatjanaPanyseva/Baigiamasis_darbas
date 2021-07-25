@@ -13,7 +13,7 @@ namespace Baigiamasis_darbas.Test
         public void AruodasPageTestDropdownBoxes()
         {
             _aruodasPage.NavigateToDefaultPage()
-                 .AcceptAllCookies()
+                 .ClickCookiesButton()
                 .SelectDropdownButtonSavivaldybe()
                 .SelectSavivaldybeFromDropdown()
                 .SelectDropdownButonMikrorajonas()
@@ -38,8 +38,8 @@ namespace Baigiamasis_darbas.Test
                 .ClickIssaugotiButton()
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
-        [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false)]
-        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string elPastas1, string slaptazodis1)
+        [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false, TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Sis el. pasto adresas uzimtas"))]
+        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku)
         {
             _aruodasPage1.NavigateToDefaultPage()
                 .ClickCookiesButton()
@@ -54,7 +54,8 @@ namespace Baigiamasis_darbas.Test
                 .ClickBoxSuPortaloTaisyklemisSutinku(SuPortaloTaisyklemisSutinku)
                 .ClickButtonRegistruotis();
         }
-        [Test]
+                
+        [TestCase("panyseva@yahoo.com", "slaptazodis123")]
         public void AruodasPage2TestLogIn(string elPastas, string slaptazodis)
         {
             _aruodasPage2.NavigateToDefaultPage()
@@ -62,7 +63,8 @@ namespace Baigiamasis_darbas.Test
                 .ClickPrisijungtiButton()
                 .InputElPastas(elPastas)
                 .InputSlaptazodis(slaptazodis)
-                .InputElPastasAndSlaptazodis(elPastas, slaptazodis);
+                .InputElPastasAndSlaptazodis(elPastas, slaptazodis)
+                .ClickButtonPrisijungti();
         }
     }
 }
