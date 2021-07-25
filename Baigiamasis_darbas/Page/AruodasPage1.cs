@@ -22,7 +22,8 @@ namespace Baigiamasis_darbas.Page
         private IWebElement _SelectBoxNoriuGautiAruodasLtNaujienlaiskius => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(3) > label > span"));
         private IWebElement _SelectBoxSuPortaloTaisyklemisSutinku => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(4) > label > span"));
         private IWebElement _ClickButtonRegistruotis => Driver.FindElement(By.CssSelector("#registerButton"));
-        
+        private IWebElement _Result => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div.login-form-input.user-login-form__error"));
+
 
 
 
@@ -96,5 +97,12 @@ namespace Baigiamasis_darbas.Page
             _ClickButtonRegistruotis.Click();
             return this;
         }
+        public AruodasPage1 Result(string expectedResult)
+        {
+            Assert.IsTrue(_Result.Text.Contains(expectedResult), $"Result is not the same, expected{expectedResult}, but was {_Result.Text}");
+            return this;
+        }
+        
+
     }
 }

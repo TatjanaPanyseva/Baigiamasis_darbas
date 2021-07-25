@@ -38,8 +38,8 @@ namespace Baigiamasis_darbas.Test
                 .ClickIssaugotiButton()
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
-        [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false, TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Sis el. pasto adresas uzimtas"))]
-        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku)
+        [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false, "Šis el. pašto adresas užimtas", TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
+        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string Result)
         {
             _aruodasPage1.NavigateToDefaultPage()
                 .ClickCookiesButton()
@@ -52,7 +52,9 @@ namespace Baigiamasis_darbas.Test
                 .CheckResult("Labai stiprus slaptažodis")
                 .ClickBoxNoriuGautiAruodasLtNaujienlaiskius(NoriuGautiAruodasLtNaujienlaiskius)
                 .ClickBoxSuPortaloTaisyklemisSutinku(SuPortaloTaisyklemisSutinku)
-                .ClickButtonRegistruotis();
+                .ClickButtonRegistruotis()
+                .Result("Šis el. pašto adresas užimtas");
+
         }
                 
         [TestCase("panyseva@yahoo.com", "slaptazodis123")]
