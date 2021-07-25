@@ -10,7 +10,7 @@ namespace Baigiamasis_darbas.Test
     public class AruodasTest : BaseTest
     {
         [Test]
-        public void AruodasPageTest()
+        public void AruodasPageTestDropdownBoxes()
         {
             _aruodasPage.NavigateToDefaultPage()
                  .AcceptAllCookies()
@@ -39,7 +39,7 @@ namespace Baigiamasis_darbas.Test
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
         [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false)]
-        public void AruodasPage1Test(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string elPastas1, string slaptazodis1)
+        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string elPastas1, string slaptazodis1)
         {
             _aruodasPage1.NavigateToDefaultPage()
                 .ClickCookiesButton()
@@ -55,7 +55,7 @@ namespace Baigiamasis_darbas.Test
                 .ClickButtonRegistruotis();
         }
         [Test]
-        public void AruodasPage2Test(string elPastas, string slaptazodis)
+        public void AruodasPage2TestLogIn(string elPastas, string slaptazodis)
         {
             _aruodasPage2.NavigateToDefaultPage()
                 .ClickCookiesButton()
