@@ -38,20 +38,20 @@ namespace Baigiamasis_darbas.Test
                 .ClickIssaugotiButton()
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
-        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", true, false, "Šis el. pašto adresas užimtas", TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
-        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string Result)
+        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", true, false, true, TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
+        public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, bool Result)
         {
             _aruodasPage1.NavigateToDefaultPage()
                 .ClickCookiesButton()
                 .ClickMeniuButton()
                 .ClickPrisijungtiFromMeniuDropdown()
-                .SelectButtonRegistruotis()               
+                .SelectButtonRegistruotis()                
                 .InputElPastasAndSlaptazodis(elPastas, slaptazodis)
                 .CheckResult("Labai stiprus slaptažodis")
                 .ClickBoxNoriuGautiAruodasLtNaujienlaiskius(NoriuGautiAruodasLtNaujienlaiskius)
                 .ClickBoxSuPortaloTaisyklemisSutinku(SuPortaloTaisyklemisSutinku)
                 .ClickButtonRegistruotis()
-                .Result("Šis el. pašto adresas užimtas");
+                .Result(Result);
 
         }
                 

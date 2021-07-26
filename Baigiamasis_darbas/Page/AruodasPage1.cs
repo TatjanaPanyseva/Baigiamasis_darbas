@@ -21,7 +21,7 @@ namespace Baigiamasis_darbas.Page
         private IWebElement _Text => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(2) > div > div.password-strength__text"));
         private IWebElement _SelectBoxNoriuGautiAruodasLtNaujienlaiskius => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(3) > label > span"));
         private IWebElement _SelectBoxSuPortaloTaisyklemisSutinku => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div:nth-child(4) > label > span"));
-        private IWebElement _ClickButtonRegistruotis => Driver.FindElement(By.CssSelector("#registerButton"));
+        private IWebElement _ClickButtonRegistruotis => Driver.FindElement(By.Id("registerButton"));
         private IWebElement _Result => Driver.FindElement(By.CssSelector("#registerForm > div.user-login-form > div.login-form-input.user-login-form__error"));
 
 
@@ -92,14 +92,16 @@ namespace Baigiamasis_darbas.Page
                 _SelectBoxSuPortaloTaisyklemisSutinku.Click();
             return this;
         }
+        
         public AruodasPage1 ClickButtonRegistruotis()
         {
             _ClickButtonRegistruotis.Click();
             return this;
         }
-        public AruodasPage1 Result(string expectedResult)
+        
+        public AruodasPage1 Result(bool expectedResult)
         {
-            Assert.IsTrue(_Result.Text.Contains(expectedResult), $"Result is not the same, expected{expectedResult}, but was {_Result.Text}");
+            Assert.IsTrue(_Result.Text.Contains("Šis el. pašto adresas užimtas"), $"Result is not the same, expected{expectedResult}, but was {_Result}");
             return this;
         }
         
