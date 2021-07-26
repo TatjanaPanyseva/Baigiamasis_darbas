@@ -67,9 +67,10 @@ namespace Baigiamasis_darbas.Page
             _ClickButtonRegistruotis.Click();
             return this;
         }        
-        public AruodasPage1 Result(bool expectedResult)
+        public AruodasPage1 Result(string expectedResult)
         {
-            Assert.IsTrue(_Result.Text.Contains("Šis el. pašto adresas užimtas"), $"Result is not the same, expected{expectedResult}, but was {_Result}");
+            Assert.IsTrue(_Result.Displayed, "Šis el. pašto adresas užimtas");
+           // Assert.IsTrue(_Result.Text.Contains(""), $"Result is not the same, expected{expectedResult}, but was {_Result}");
             return this;
         }
     }

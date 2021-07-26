@@ -63,7 +63,7 @@ namespace Baigiamasis_darbas.Page
         }
         public AruodasPage2 Result(string expectedResult)
         {
-            Assert.IsTrue(!_Result.TagName.Contains(expectedResult), "Result is not the same, expected{expectedResult}, but was {_Result}");
+            Assert.IsTrue(_Result.Displayed, "Mygtukas neatsirado");
             return this;
         }
         //Assert.IsTrue(!rezultatas,kuri gaini.Contains(rezultatas, kurio tikiesi), "zinute, kuria gauni jei rezultatas nera toks, kokio tikiesi");
