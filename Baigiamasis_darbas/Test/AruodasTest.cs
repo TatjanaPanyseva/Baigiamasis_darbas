@@ -9,8 +9,8 @@ namespace Baigiamasis_darbas.Test
 {
     public class AruodasTest : BaseTest
     {
-        [Test]
-        public void AruodasPageTestDropdownBoxes()
+        [TestCase("20000", "500000", TestName = ("Skelbimu paieska pagal pasirinktus kriterijus"))]
+        public void AruodasPageTestDropdownBoxes(string kainaFrom, string kainaTill)
         {
             _aruodasPage.NavigateToDefaultPage()
                  .ClickCookiesButton()
@@ -32,22 +32,20 @@ namespace Baigiamasis_darbas.Test
                 .SelectIrengimasFromDropdown()
                 .ClickSelectIrengimasButton()
                 .SelectDropdownButtonKaina()
-                .InsertKainaFrom("20000")
-                .InsertKainaTill("500000")
+                .InsertKainaFrom(kainaFrom)
+                .InsertKainaTill(kainaTill)
                 .ClickIssaugotiKainaButton()
                 .ClickIssaugotiButton()
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
-        [TestCase("panyseva@yahoo.com", "slaptazodis123", true, false, "Šis el. pašto adresas užimtas", TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
+        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", true, false, "Šis el. pašto adresas užimtas", TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
         public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string Result)
         {
             _aruodasPage1.NavigateToDefaultPage()
                 .ClickCookiesButton()
                 .ClickMeniuButton()
                 .ClickPrisijungtiFromMeniuDropdown()
-                .SelectButtonRegistruotis()
-                .InputElPastoAdresas(elPastas)
-                .InputSlaptazodis(slaptazodis)
+                .SelectButtonRegistruotis()               
                 .InputElPastasAndSlaptazodis(elPastas, slaptazodis)
                 .CheckResult("Labai stiprus slaptažodis")
                 .ClickBoxNoriuGautiAruodasLtNaujienlaiskius(NoriuGautiAruodasLtNaujienlaiskius)
@@ -57,17 +55,15 @@ namespace Baigiamasis_darbas.Test
 
         }
                 
-        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", "Mano aruodas", TestName = ("LogIn - Input El.Pastas, Input Slaptazodis = LogIn"))]
+        [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", " Mano aruodas", TestName = ("LogIn - Input El.Pastas, Input Slaptazodis = LogIn"))]
         public void AruodasPage2TestLogIn(string elPastas, string slaptazodis, string expectedResult)
         {
             _aruodasPage2.NavigateToDefaultPage()
                 .ClickCookiesButton()
-                .ClickPrisijungtiButton()
-                .InputElPastas(elPastas)
-                .InputSlaptazodis(slaptazodis)
+                .ClickPrisijungtiButton()               
                 .InputElPastasAndSlaptazodis(elPastas, slaptazodis)
                 .ClickButtonPrisijungti()
-                .Result(true);
+                .Result(expectedResult);
         }
     }
 }
