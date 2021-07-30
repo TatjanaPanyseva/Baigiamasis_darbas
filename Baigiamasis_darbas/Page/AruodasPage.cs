@@ -183,7 +183,7 @@ namespace Baigiamasis_darbas.Page
         public AruodasPage CheckResult(string result)
         {
 
-            Assert.IsTrue(_Result.Text.Equals("Mygtukas neatsirado: Skelbimų pagal Jūsų paieškos kriterijus neradome"));
+            Assert.IsTrue(_Result.Text.Equals("Pranesimas neatsirado: Skelbimų pagal Jūsų paieškos kriterijus neradome"));
             return this;
         }
     }
