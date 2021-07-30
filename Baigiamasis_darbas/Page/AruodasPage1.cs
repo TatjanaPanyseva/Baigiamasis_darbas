@@ -69,8 +69,7 @@ namespace Baigiamasis_darbas.Page
         }        
         public AruodasPage1 Result(string expectedResult)
         {
-            Assert.IsTrue(_Result.Displayed, "Pranesimas: Šis el. pašto adresas užimtas, neatsirado");
-           // Assert.IsTrue(_Result.Text.Contains(""), $"Result is not the same, expected{expectedResult}, but was {_Result}");
+            Assert.IsTrue(_Result.Displayed, "Pranesimas: Šis el. pašto adresas užimtas, neatsirado");           
             return this;
         }
     }
