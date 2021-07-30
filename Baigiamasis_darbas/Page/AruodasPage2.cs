@@ -65,7 +65,6 @@ namespace Baigiamasis_darbas.Page
         {
             Assert.IsTrue(_Result.Displayed, "Mygtukas: Mano aruodas, neatsirado");
             return this;
-        }
-        //Assert.IsTrue(!rezultatas,kuri gaini.Contains(rezultatas, kurio tikiesi), "zinute, kuria gauni jei rezultatas nera toks, kokio tikiesi");
+        }        
     }
 }
