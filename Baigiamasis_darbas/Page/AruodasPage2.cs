@@ -17,8 +17,6 @@ namespace Baigiamasis_darbas.Page
         private IWebElement _SelectInputElSlaptazodis => Driver.FindElement(By.Id("password"));
         private IWebElement _SelectButtonPrisijungti => Driver.FindElement(By.Id("loginAruodas"));
         private IWebElement _Result => Driver.FindElement(By.CssSelector("body > div.main > div.header-strip > div.header-main-menu > div:nth-child(3) > div.personal-menu > div.user-personal-menu > a > span"));
-
-
         public AruodasPage2(IWebDriver webdriver) : base(webdriver)
         {
         }

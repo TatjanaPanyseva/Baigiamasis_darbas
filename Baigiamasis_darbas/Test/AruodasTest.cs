@@ -38,6 +38,7 @@ namespace Baigiamasis_darbas.Test
                 .ClickIssaugotiButton()
                 .CheckResult("Skelbimų pagal Jūsų paieškos kriterijus neradome");
         }
+
         [TestCase("panyseva@gmail.com", "SLAPTAZODIS123", true, false, "Šis el. pašto adresas užimtas", TestName = ("Input elPastas, slaptazodis + gauti naujienlaiskius + sutikti su portalo taisyklemis = Šis el. pašto adresas užimtas"))]
         public void AruodasPage1TestRegistration(string elPastas, string slaptazodis, bool NoriuGautiAruodasLtNaujienlaiskius, bool SuPortaloTaisyklemisSutinku, string expectedResult)
         {
